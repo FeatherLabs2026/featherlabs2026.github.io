@@ -160,10 +160,19 @@
       setText('h3', t.gameHeading, details);
       const paragraphs = $$('p', details);
       if (paragraphs[0] && typeof t.gameText === 'string') paragraphs[0].textContent = t.gameText;
+      const factLabels = [t.platform, t.engine, t.studio, t.status];
+      const factValues = [t.platformValue, t.engineValue, t.studioValue, t.statusValue];
+
       $$('.fact', details).forEach((fact, index) => {
         const label = $('span', fact);
-        const labels = [t.platform, t.engine, t.studio, t.status];
-        if (label && typeof labels[index] === 'string') label.textContent = labels[index];
+        const value = $('strong', fact);
+
+        if (label && typeof factLabels[index] === 'string') {
+          label.textContent = factLabels[index];
+        }
+        if (value && typeof factValues[index] === 'string' && factValues[index].trim()) {
+          value.textContent = factValues[index];
+        }
       });
     }
 
