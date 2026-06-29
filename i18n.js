@@ -66,7 +66,10 @@
     setText('.hero h1',t.heroTitle);
     setText('.button-primary',t.discover);
     setText('.button-secondary',t.authors);
-    setText('.hero .tech-list > p',t.technologies);
+    setText('.hero .hero-copy',t.heroCopy);
+    setText('.hero .tech-card > p',t.technologies);
+    setText('.hero .tech-card > strong',t.techCardTitle);
+    $('.hero .tech-card')?.setAttribute('aria-label',t.techCardAria || t.technologies || 'Technologies');
     setText('#pipi-panic .section-kicker',t.gameKicker);
     setText('#pipi-panic .section-title',t.gameTitle);
     setText('#pipi-panic > .container > .section-text',t.gameIntro);
@@ -96,8 +99,10 @@
       const ps=$$('p',card); if(ps[1]) ps[1].textContent=i===0?t.ikarugaText:t.condorText;
     });
     setText('[data-social-label="tippee"]',t.tippeeSupport||'Tipeee — Support Ikaruga');
-    setText('.site-legal-links a[href="privacy.html"]',t.privacy);
-    setText('.site-legal-links a[href="terms.html"]',t.terms);
+    const privacyFooterLabel = t.legal?.privacyTitle || (typeof t.privacy === 'string' ? t.privacy : 'Privacy Policy');
+    const termsFooterLabel = t.legal?.termsTitle || (typeof t.terms === 'string' ? t.terms : 'Terms of Use');
+    setText('.site-legal-links a[href="privacy.html"]',privacyFooterLabel);
+    setText('.site-legal-links a[href="terms.html"]',termsFooterLabel);
     $('.brand')?.setAttribute('aria-label',t.homeAria);
     $('.site-legal-links')?.setAttribute('aria-label',t.legalAria);
   }
@@ -124,8 +129,8 @@
       $('.toc').innerHTML=`<p>${legal.onThisPage}</p>${translated.sections.map(s=>`<a href="#${s.id}">${s.toc||s.title.replace(/^\d+\.\s*/, '')}</a>`).join('')}`;
     }
     setText('.footer-links a[href="index.html"]',legal.home);
-    setText('.footer-links a[href="privacy.html"]',t.privacy);
-    setText('.footer-links a[href="terms.html"]',t.terms);
+    setText('.footer-links a[href="privacy.html"]',legal.privacyTitle || legal.privacy);
+    setText('.footer-links a[href="terms.html"]',legal.termsTitle || legal.terms);
     setText('.footer-links a[href^="mailto:"]',legal.contact);
     $('.footer-links')?.setAttribute('aria-label',legal.footerAria);
   }
