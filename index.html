@@ -451,43 +451,22 @@
             line-height: 1.6;
         }
 
-        .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
         .social-button {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            min-height: 42px;
+            margin-top: 20px;
             padding: 10px 13px;
             border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 10px;
             color: #ffffff;
             font-size: 0.9rem;
             font-weight: 850;
-            transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
         }
 
         .social-button:hover {
             border-color: var(--yellow-light);
             color: var(--yellow-light);
-            transform: translateY(-2px);
-        }
-
-        .social-button-support {
-            border-color: var(--yellow);
-            color: #1b1604;
-            background: var(--yellow);
-        }
-
-        .social-button-support:hover {
-            border-color: var(--yellow-light);
-            color: #1b1604;
-            background: var(--yellow-light);
         }
 
         .social-icon {
@@ -593,6 +572,32 @@
                 text-align: center;
             }
         }
+    
+        .site-legal-links {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 14px;
+            margin-top: 9px;
+        }
+
+        .site-legal-links a {
+            color: rgba(255,255,255,0.82);
+            font-size: 0.82rem;
+            font-weight: 760;
+            text-decoration: none;
+        }
+
+        .site-legal-links a:hover {
+            color: var(--yellow-light);
+        }
+
+        @media (max-width: 540px) {
+            .site-legal-links {
+                justify-content: center;
+            }
+        }
+
     </style>
 </head>
 
@@ -691,7 +696,8 @@
                 <p class="section-kicker">Co-auteurs</p>
                 <h2 class="section-title">Deux créateurs derrière Feather Labs Interactive.</h2>
                 <p class="section-text">
-                    Retrouvez les auteurs et leurs communautés via leurs liens officiels.
+                    Suivez les auteurs du projet sur leurs chaînes officielles. Les liens Instagram, X,
+                    TikTok et les autres plateformes seront ajoutés dès que leurs URL officielles seront définies.
                 </p>
 
                 <div class="author-grid" id="reseaux">
@@ -701,57 +707,15 @@
                             <h3>Ikaruga</h3>
                             <p class="author-role">Co-auteur</p>
                             <p>Créateur de Feather Labs Interactive et co-auteur de Pipi Panic.</p>
-                            <div class="social-links" aria-label="Réseaux officiels d’Ikaruga">
-                                <a
-                                    class="social-button"
-                                    href="https://www.youtube.com/@Ikaruga_memories"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <span class="social-icon">▶</span>
-                                    YouTube
-                                </a>
-
-                                <a
-                                    class="social-button"
-                                    href="https://discord.com/invite/TMjx3ZBn4c"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <span class="social-icon">◉</span>
-                                    Discord
-                                </a>
-
-                                <a
-                                    class="social-button"
-                                    href="https://x.com/IkarugaMemories"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <span class="social-icon">𝕏</span>
-                                    X
-                                </a>
-
-                                <a
-                                    class="social-button"
-                                    href="https://www.tiktok.com/@ikaruga75"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <span class="social-icon">♪</span>
-                                    TikTok
-                                </a>
-
-                                <a
-                                    class="social-button social-button-support"
-                                    href="https://fr.tipeee.com/ikaruga/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <span class="social-icon">♥</span>
-                                    Soutenir sur Tipeee
-                                </a>
-                            </div>
+                            <a
+                                class="social-button"
+                                href="https://www.youtube.com/@Ikaruga_memories"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span class="social-icon">▶</span>
+                                YouTube — Ikaruga
+                            </a>
                         </div>
                     </article>
 
@@ -761,17 +725,15 @@
                             <h3>Ninja Condor</h3>
                             <p class="author-role">Co-auteur</p>
                             <p>Co-auteur de Pipi Panic et membre de Feather Labs Interactive.</p>
-                            <div class="social-links" aria-label="Réseaux officiels de Ninja Condor">
-                                <a
-                                    class="social-button"
-                                    href="https://www.youtube.com/@TheRazielCondor"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <span class="social-icon">▶</span>
-                                    YouTube — Ninja Condor
-                                </a>
-                            </div>
+                            <a
+                                class="social-button"
+                                href="https://www.youtube.com/@TheRazielCondor"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span class="social-icon">▶</span>
+                                YouTube — Ninja Condor
+                            </a>
                         </div>
                     </article>
                 </div>
@@ -786,13 +748,17 @@
                 © 2026 Feather Labs Interactive.<br>
                 Pipi Panic · Flutter &amp; Flame
             </p>
+            <nav class="site-legal-links" aria-label="Informations légales">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
+            </nav>
         </div>
     </footer>
 
     <!--
-        Réseaux Feather Labs :
-        Ajouter ultérieurement le Discord officiel de support Feather Labs ici,
-        uniquement lorsque son invitation publique et sa modération seront prêtes.
+        Réseaux supplémentaires :
+        Ajoute ici uniquement des liens officiels confirmés pour Instagram, X et TikTok.
+        Évite les boutons vides ou les URL provisoires.
     -->
 </body>
 </html>
