@@ -84,6 +84,8 @@
       .language-picker:focus-visible{outline:3px solid var(--yellow-light,#ffe36e);outline-offset:3px}
       .language-picker option{color:#101725;background:#fff}
       .header-inner{flex-wrap:wrap}
+      .social-twitch:hover{color:#bf94ff}
+      .social-tipeee:hover{color:var(--yellow-light,#ffe36e)}
       @media(max-width:560px){.header-inner{gap:10px;min-height:72px}.language-picker-wrap{margin-left:0}.language-picker{min-height:32px;font-size:.76rem}}
     `;
     document.head.append(style);
@@ -123,6 +125,43 @@
         'Terms of Use'
       )
     };
+  }
+
+  function ensureNinjaCondorLinks() {
+    const ninjaCard = $$('#auteurs .author-card')[1];
+    const links = ninjaCard && $('.social-links', ninjaCard);
+    if (!links) return;
+
+    const createLink = (url, className, label, tooltip, svg) => {
+      if ($(`[data-ninjacondor-link="${className}"]`, links)) return;
+
+      const link = document.createElement('a');
+      link.className = `social-button ${className}`;
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', `${label} — Ninja Condor`);
+      link.setAttribute('data-tooltip', tooltip);
+      link.setAttribute('data-ninjacondor-link', className);
+      link.innerHTML = `<span class="social-icon">${svg}</span><span class="sr-only">${label} — Ninja Condor</span>`;
+      links.append(link);
+    };
+
+    createLink(
+      'https://www.twitch.tv/ninjacondor',
+      'social-twitch',
+      'Twitch',
+      'Twitch',
+      '<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="currentColor" d="M4 2h17v12l-4 4h-4l-3 3H7v-3H4V2Zm2 2v12h3v2l2-2h5l3-3V4H6Zm5 3h2v5h-2V7Zm4 0h2v5h-2V7Z"/></svg>'
+    );
+
+    createLink(
+      'https://fr.tipeee.com/ninjacondor/',
+      'social-tipeee',
+      'Tipeee',
+      'Tipeee',
+      '<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="currentColor" d="M4 3h16v4h-6v14h-4V7H4V3Z"/></svg>'
+    );
   }
 
   function localizeIndex(lang, t) {
@@ -210,6 +249,7 @@
     });
 
     setText('[data-social-label="tippee"]', textValue(t.tippeeSupport, 'Tipeee — Support Ikaruga'));
+    ensureNinjaCondorLinks();
 
     // Never write an object to the footer. IDs prevent language query strings from breaking a selector.
     setFirstText(
