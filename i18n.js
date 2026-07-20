@@ -164,6 +164,40 @@
     );
   }
 
+  function localizeMainNav(t) {
+    setText('.nav a[href="#pipi-panic"], .nav a[href^="index.html#pipi-panic"]', t.navGame);
+    setText('[data-nav-team]', textValue(t.navTeam, t.navAuthors, 'About us'));
+    setText('[data-nav-project]', textValue(t.navProject, 'Upcoming Project'));
+    setText('[data-nav-genable]', textValue(t.navGenable, 'Genable AI'));
+  }
+
+  function localizeDataPage(pageKey, t) {
+    const page = t && typeof t[pageKey] === 'object' && t[pageKey] ? t[pageKey] : {};
+
+    document.title = textValue(page.title, document.title);
+    const description = $('meta[name="description"]');
+    if (description && typeof page.description === 'string') {
+      description.setAttribute('content', page.description);
+    }
+
+    $$('[data-i18n]').forEach((node) => {
+      const key = node.dataset.i18n;
+      const value = page[key];
+      if (typeof value === 'string') node.textContent = value;
+    });
+
+    localizeMainNav(t);
+    $('.brand')?.setAttribute('aria-label', textValue(t.homeAria, 'Feather Labs Interactive — home'));
+  }
+
+  function localizeAbout(lang, t) {
+    localizeDataPage('about', t);
+  }
+
+  function localizeGenable(lang, t) {
+    localizeDataPage('genable', t);
+  }
+
   function localizeIndex(lang, t) {
     const legal = legalStrings(t);
 
@@ -173,7 +207,7 @@
       description.setAttribute('content', t.description);
     }
 
-    setText('.nav a[href="#pipi-panic"]', t.navGame);
+    localizeMainNav(t);
     setText('.nav a[href="#auteurs"]', t.navAuthors);
     setText('.nav a[href="#reseaux"]', t.navSocial);
     setText('.hero h1', t.heroTitle);
@@ -267,6 +301,32 @@
     );
   }
 
+  function localizeGalaxia(lang, t) {
+    const galaxy = t && typeof t.galaxia === 'object' && t.galaxia ? t.galaxia : {};
+
+    document.title = textValue(
+      galaxy.title,
+      'Upcoming Project — Coming soon | Feather Labs Interactive'
+    );
+
+    const description = $('meta[name="description"]');
+    if (description) {
+      description.setAttribute(
+        'content',
+        textValue(galaxy.description, 'Upcoming Project — coming soon.')
+      );
+    }
+
+    localizeMainNav(t);
+    setText('[data-galaxia-coming-soon]', galaxy.comingSoon);
+    setText('[data-galaxia-back]', galaxy.back);
+
+    $('.brand')?.setAttribute(
+      'aria-label',
+      textValue(t.homeAria, 'Feather Labs Interactive — home')
+    );
+  }
+
   function localizeLegal(lang, t) {
     const page = document.body.dataset.page;
     const legal = t && typeof t.legal === 'object' && t.legal ? t.legal : {};
@@ -323,10 +383,15 @@
   }
 
   function rewriteInternalLinks(lang) {
-    $$('a[href="index.html"], a[href="privacy.html"], a[href="terms.html"]').forEach((link) => {
-      const file = link.getAttribute('href');
-      if (!file) return;
-      link.setAttribute('href', `${file}?lang=${encodeURIComponent(lang)}`);
+    $$('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href || !/^(?:index|privacy|terms|galaxia-eternum|about|genable-ai)\.html(?:[?#]|$)/.test(href)) return;
+
+      const base = location.href.startsWith('about:') ? 'https://featherlabs.local/' : location.href;
+      const url = new URL(href, base);
+      url.searchParams.set('lang', lang);
+      const file = url.pathname.split('/').pop();
+      link.setAttribute('href', `${file}${url.search}${url.hash}`);
     });
   }
 
@@ -345,8 +410,15 @@
     addCss();
     makePicker(lang, textValue(t.languageLabel, 'Language'));
 
-    if (document.body.dataset.page) {
+    const page = document.body.dataset.page;
+    if (page === 'privacy' || page === 'terms') {
       localizeLegal(lang, t);
+    } else if (page === 'galaxia') {
+      localizeGalaxia(lang, t);
+    } else if (page === 'about') {
+      localizeAbout(lang, t);
+    } else if (page === 'genable') {
+      localizeGenable(lang, t);
     } else {
       localizeIndex(lang, t);
     }
