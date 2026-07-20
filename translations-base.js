@@ -128,48 +128,48 @@ Object.assign(window.FEATHER_TRANSLATIONS, {
 
   const pages = {
     fr: {
-      title:'Projet à Venir — Bientôt disponible | Feather Labs Interactive',
-      description:'Projet à Venir — bientôt disponible. Une production Feather Labs Interactive.',
+      title:'Next Project — Bientôt disponible | Feather Labs Interactive',
+      description:'Next Project — bientôt disponible. Une production Feather Labs Interactive.',
       comingSoon:'Bientôt disponible', back:'Retour au studio'
     },
     en: {
-      title:'Upcoming Project — Coming soon | Feather Labs Interactive',
-      description:'Upcoming Project — coming soon. A Feather Labs Interactive production.',
+      title:'Next Project — Coming soon | Feather Labs Interactive',
+      description:'Next Project — coming soon. A Feather Labs Interactive production.',
       comingSoon:'Coming soon', back:'Back to the studio'
     },
     es: {
-      title:'Próximo Proyecto — Próximamente | Feather Labs Interactive',
-      description:'Próximo Proyecto — próximamente. Una producción de Feather Labs Interactive.',
+      title:'Next Project — Próximamente | Feather Labs Interactive',
+      description:'Next Project — próximamente. Una producción de Feather Labs Interactive.',
       comingSoon:'Próximamente', back:'Volver al estudio'
     },
     it: {
-      title:'Progetto Futuro — Prossimamente | Feather Labs Interactive',
-      description:'Progetto Futuro — prossimamente. Una produzione Feather Labs Interactive.',
+      title:'Next Project — Prossimamente | Feather Labs Interactive',
+      description:'Next Project — prossimamente. Una produzione Feather Labs Interactive.',
       comingSoon:'Prossimamente', back:'Torna allo studio'
     },
     de: {
-      title:'Kommendes Projekt — Demnächst verfügbar | Feather Labs Interactive',
-      description:'Kommendes Projekt — demnächst verfügbar. Eine Produktion von Feather Labs Interactive.',
+      title:'Next Project — Demnächst verfügbar | Feather Labs Interactive',
+      description:'Next Project — demnächst verfügbar. Eine Produktion von Feather Labs Interactive.',
       comingSoon:'Demnächst verfügbar', back:'Zurück zum Studio'
     },
     zh: {
-      title:'即将推出的项目 | Feather Labs Interactive',
-      description:'Feather Labs Interactive 的新项目即将推出。',
+      title:'Next Project | Feather Labs Interactive',
+      description:'Next Project — Feather Labs Interactive 的新项目即将推出。',
       comingSoon:'即将推出', back:'返回工作室'
     },
     ja: {
-      title:'今後のプロジェクト — 近日公開 | Feather Labs Interactive',
-      description:'Feather Labs Interactive の新プロジェクト、近日公開。',
+      title:'Next Project — 近日公開 | Feather Labs Interactive',
+      description:'Next Project — Feather Labs Interactive の新プロジェクト、近日公開。',
       comingSoon:'近日公開', back:'スタジオへ戻る'
     },
     ko: {
-      title:'공개 예정 프로젝트 | Feather Labs Interactive',
-      description:'Feather Labs Interactive의 새 프로젝트가 곧 공개됩니다.',
+      title:'Next Project | Feather Labs Interactive',
+      description:'Next Project — Feather Labs Interactive의 새 프로젝트가 곧 공개됩니다.',
       comingSoon:'출시 예정', back:'스튜디오로 돌아가기'
     }
   };
 
-  Object.entries(pages).forEach(([lang, galaxia]) => {
-    if (T[lang]) T[lang].galaxia = galaxia;
+  Object.entries(pages).forEach(([lang, project]) => {
+    if (T[lang]) T[lang].nextProject = project;
   });
 })();

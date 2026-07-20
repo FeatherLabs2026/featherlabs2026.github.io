@@ -167,8 +167,8 @@
   function localizeMainNav(t) {
     setText('.nav a[href="#pipi-panic"], .nav a[href^="index.html#pipi-panic"]', t.navGame);
     setText('[data-nav-team]', textValue(t.navTeam, t.navAuthors, 'About us'));
-    setText('[data-nav-project]', textValue(t.navProject, 'Upcoming Project'));
-    setText('[data-nav-genable]', textValue(t.navGenable, 'Genable AI'));
+    setText('[data-nav-project]', textValue(t.navProject, 'Next Project'));
+    setText('[data-nav-genable]', textValue(t.navGenable, 'Genable AI (WIP)'));
   }
 
   function localizeDataPage(pageKey, t) {
@@ -301,25 +301,25 @@
     );
   }
 
-  function localizeGalaxia(lang, t) {
-    const galaxy = t && typeof t.galaxia === 'object' && t.galaxia ? t.galaxia : {};
+  function localizeNextProject(lang, t) {
+    const project = t && typeof t.nextProject === 'object' && t.nextProject ? t.nextProject : {};
 
     document.title = textValue(
-      galaxy.title,
-      'Upcoming Project — Coming soon | Feather Labs Interactive'
+      project.title,
+      'Next Project — Coming soon | Feather Labs Interactive'
     );
 
     const description = $('meta[name="description"]');
     if (description) {
       description.setAttribute(
         'content',
-        textValue(galaxy.description, 'Upcoming Project — coming soon.')
+        textValue(project.description, 'Next Project — coming soon.')
       );
     }
 
     localizeMainNav(t);
-    setText('[data-galaxia-coming-soon]', galaxy.comingSoon);
-    setText('[data-galaxia-back]', galaxy.back);
+    setText('[data-project-coming-soon]', project.comingSoon);
+    setText('[data-project-back]', project.back);
 
     $('.brand')?.setAttribute(
       'aria-label',
@@ -385,7 +385,7 @@
   function rewriteInternalLinks(lang) {
     $$('a[href]').forEach((link) => {
       const href = link.getAttribute('href');
-      if (!href || !/^(?:index|privacy|terms|galaxia-eternum|about|genable-ai)\.html(?:[?#]|$)/.test(href)) return;
+      if (!href || !/^(?:index|privacy|terms|next-project|about|genable-ai)\.html(?:[?#]|$)/.test(href)) return;
 
       const base = location.href.startsWith('about:') ? 'https://featherlabs.local/' : location.href;
       const url = new URL(href, base);
@@ -413,8 +413,8 @@
     const page = document.body.dataset.page;
     if (page === 'privacy' || page === 'terms') {
       localizeLegal(lang, t);
-    } else if (page === 'galaxia') {
-      localizeGalaxia(lang, t);
+    } else if (page === 'next-project') {
+      localizeNextProject(lang, t);
     } else if (page === 'about') {
       localizeAbout(lang, t);
     } else if (page === 'genable') {

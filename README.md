@@ -2,8 +2,8 @@ FEATHER LABS INTERACTIVE — MULTILINGUAL LEGAL PAGES
 
 FILES :
 - index.html
-- galaxia-eternum.html
-- galaxia-eternum.css
+- next-project.html
+- next-project.css
 - privacy.html
 - terms.html
 - i18n.js
@@ -33,6 +33,6 @@ The policy describes AdMob / Google Mobile Ads SDK processing. Before the app go
 LEGAL NOTE
 The translations are operational website translations of the supplied English legal drafts. Before a broad commercial release, have the final policy and terms reviewed for the actual SDK configuration, age rating, in-app purchases, and the countries targeted by the release.
 
-GALAXIA ETERNUM
-- A dedicated coming-soon page is available at /galaxia-eternum.html.
-- Its supplied artwork is stored under assets/galaxia-eternum/.
+NEXT PROJECT
+- A dedicated coming-soon page is available at /next-project.html.
+- Its supplied artwork is stored under assets/next-project/.
