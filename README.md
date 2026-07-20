@@ -36,3 +36,13 @@ The translations are operational website translations of the supplied English le
 NEXT PROJECT
 - A dedicated coming-soon page is available at /next-project.html.
 - Its supplied artwork is stored under assets/next-project/.
+
+## Navigation
+
+- `index.html` : feuille de route (page par défaut)
+- `pipi-panic.html` : présentation de Pipi Panic
+- `next-project.html` : prochain projet confidentiel
+- `genable-ai.html` : landing page Genable AI (WIP)
+- `about.html` : équipe
+
+Les liens de démo Genable acceptent `?sector=btp`, `?sector=medecine` ou un profil précis comme `?profile=architecte`.

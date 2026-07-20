@@ -165,7 +165,8 @@
   }
 
   function localizeMainNav(t) {
-    setText('.nav a[href="#pipi-panic"], .nav a[href^="index.html#pipi-panic"]', t.navGame);
+    setText('.nav a[href="#pipi-panic"], .nav a[href^="index.html#pipi-panic"], .nav a[href^="pipi-panic.html"]', t.navGame);
+    setText('[data-nav-roadmap]', textValue(t.navRoadmap, 'Roadmap'));
     setText('[data-nav-team]', textValue(t.navTeam, t.navAuthors, 'About us'));
     setText('[data-nav-project]', textValue(t.navProject, 'Next Project'));
     setText('[data-nav-genable]', textValue(t.navGenable, 'Genable AI (WIP)'));
@@ -188,6 +189,10 @@
 
     localizeMainNav(t);
     $('.brand')?.setAttribute('aria-label', textValue(t.homeAria, 'Feather Labs Interactive — home'));
+  }
+
+  function localizeRoadmap(lang, t) {
+    localizeDataPage('roadmap', t);
   }
 
   function localizeAbout(lang, t) {
@@ -347,7 +352,7 @@
       );
     }
 
-    setText('.header-links a[href="index.html"]', legal.home);
+    setText('.header-links a[href="index.html"], .header-links a[href="pipi-panic.html"]', legal.home);
     setText('.header-links a[href="privacy.html"]', legal.privacy);
     setText('.header-links a[href="terms.html"]', legal.terms);
     setText('.eyebrow', legal.kicker);
@@ -385,7 +390,7 @@
   function rewriteInternalLinks(lang) {
     $$('a[href]').forEach((link) => {
       const href = link.getAttribute('href');
-      if (!href || !/^(?:index|privacy|terms|next-project|about|genable-ai)\.html(?:[?#]|$)/.test(href)) return;
+      if (!href || !/^(?:index|pipi-panic|privacy|terms|next-project|about|genable-ai)\.html(?:[?#]|$)/.test(href)) return;
 
       const base = location.href.startsWith('about:') ? 'https://featherlabs.local/' : location.href;
       const url = new URL(href, base);
@@ -415,6 +420,8 @@
       localizeLegal(lang, t);
     } else if (page === 'next-project') {
       localizeNextProject(lang, t);
+    } else if (page === 'roadmap') {
+      localizeRoadmap(lang, t);
     } else if (page === 'about') {
       localizeAbout(lang, t);
     } else if (page === 'genable') {

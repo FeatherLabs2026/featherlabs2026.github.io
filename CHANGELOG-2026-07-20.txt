@@ -1,0 +1,11 @@
+Feather Labs Interactive — mise à jour du 20 juillet 2026
+
+- Nouvelle page par défaut « Feuille de route » sous index.html.
+- Pipi Panic déplacé vers pipi-panic.html.
+- Ordre de navigation : Feuille de route, Pipi Panic, Next Project, Genable AI (WIP), Qui sommes-nous ?.
+- Page équipe enrichie avec avatars YouTube, logos sociaux et positionnement éditorial des chaînes.
+- Ikaruga présenté comme développeur avec plus de 8 ans d’expérience.
+- NinjaCondor présenté comme YouTuber jeu vidéo, nourriture, actualité et découvertes.
+- Démo Genable : Analyse concurrentielle et Campagnes & Newsletters réservées à la version payante.
+- Quitter la démo renvoie vers genable-ai.html.
+- Liens de démo préconfigurés : ?sector=btp, ?sector=medecine ou ?profile=<profil>.
