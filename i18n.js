@@ -72,6 +72,72 @@
     });
   }
 
+  function buildPrimaryNav(lang, page) {
+    const nav = $('.nav, .header-links');
+    if (!nav) return;
+    nav.classList.remove('header-links');
+    nav.classList.add('nav');
+
+    const labels = {
+      fr:{home:'Accueil',games:'Jeux',products:'Produits',roadmap:'Roadmap',studio:'Le studio',next:'Prochain jeu'},
+      en:{home:'Home',games:'Games',products:'Products',roadmap:'Roadmap',studio:'Studio',next:'Next game'},
+      es:{home:'Inicio',games:'Juegos',products:'Productos',roadmap:'Roadmap',studio:'Estudio',next:'Próximo juego'},
+      it:{home:'Home',games:'Giochi',products:'Prodotti',roadmap:'Roadmap',studio:'Studio',next:'Prossimo gioco'},
+      de:{home:'Start',games:'Spiele',products:'Produkte',roadmap:'Roadmap',studio:'Studio',next:'Nächstes Spiel'},
+      zh:{home:'首页',games:'游戏',products:'产品',roadmap:'路线图',studio:'工作室',next:'下一款游戏'},
+      ja:{home:'ホーム',games:'ゲーム',products:'製品',roadmap:'ロードマップ',studio:'スタジオ',next:'次回作'},
+      ko:{home:'홈',games:'게임',products:'제품',roadmap:'로드맵',studio:'스튜디오',next:'다음 게임'}
+    }[lang] || null;
+    const copy = labels || {home:'Home',games:'Games',products:'Products',roadmap:'Roadmap',studio:'Studio',next:'Next game'};
+    const gamesActive = page === 'pipi-panic' || page === 'next-project';
+    const productsActive = page === 'genable';
+
+    nav.innerHTML = `
+      <a href="index.html"${page === 'home' ? ' aria-current="page"' : ''}>${copy.home}</a>
+      <div class="nav-dropdown${gamesActive ? ' is-current' : ''}">
+        <button type="button" aria-expanded="false" aria-haspopup="true">${copy.games}<span aria-hidden="true">⌄</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="pipi-panic.html"${page === 'pipi-panic' ? ' aria-current="page"' : ''}>Pipi Panic</a>
+          <a href="next-project.html"${page === 'next-project' ? ' aria-current="page"' : ''}>${copy.next}</a>
+        </div>
+      </div>
+      <div class="nav-dropdown${productsActive ? ' is-current' : ''}">
+        <button type="button" aria-expanded="false" aria-haspopup="true">${copy.products}<span aria-hidden="true">⌄</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="genable-ai.html"${page === 'genable' ? ' aria-current="page"' : ''}>Genable AI (WIP)</a>
+        </div>
+      </div>
+      <a href="index.html#feuille-de-route">${copy.roadmap}</a>
+      <a href="about.html"${page === 'about' ? ' aria-current="page"' : ''}>${copy.studio}</a>
+    `;
+    nav.setAttribute('aria-label', nav.getAttribute('aria-label') || 'Navigation');
+
+    const dropdowns = $$('.nav-dropdown', nav);
+    const closeAll = (except = null) => dropdowns.forEach((dropdown) => {
+      if (dropdown === except) return;
+      dropdown.classList.remove('is-open');
+      $('button', dropdown)?.setAttribute('aria-expanded', 'false');
+    });
+    dropdowns.forEach((dropdown) => {
+      const button = $('button', dropdown);
+      button?.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const open = !dropdown.classList.contains('is-open');
+        closeAll(dropdown);
+        dropdown.classList.toggle('is-open', open);
+        button.setAttribute('aria-expanded', String(open));
+      });
+      dropdown.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          dropdown.classList.remove('is-open');
+          button?.setAttribute('aria-expanded', 'false');
+          button?.focus();
+        }
+      });
+    });
+    document.addEventListener('click', () => closeAll(), { passive: true });
+  }
+
   function addCss() {
     if ($('#feather-i18n-style')) return;
 
@@ -84,9 +150,21 @@
       .language-picker:focus-visible{outline:3px solid var(--yellow-light,#ffe36e);outline-offset:3px}
       .language-picker option{color:#101725;background:#fff}
       .header-inner{flex-wrap:wrap}
+      .nav{overflow:visible}
+      .nav-dropdown{position:relative;display:flex;align-items:center}
+      .nav-dropdown>button{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;color:inherit;background:none;font:inherit;cursor:pointer;transition:color .18s ease}
+      .nav-dropdown>button span{font-size:.9em;transition:transform .18s ease}
+      .nav-dropdown:hover>button,.nav-dropdown:focus-within>button,.nav-dropdown.is-open>button,.nav-dropdown.is-current>button{color:var(--yellow-light,#ffe36e)}
+      .nav-dropdown.is-open>button span{transform:rotate(180deg)}
+      .nav-dropdown-menu{position:absolute;top:calc(100% + 14px);left:50%;z-index:50;display:grid;min-width:190px;padding:8px;border:1px solid rgba(255,255,255,.14);border-radius:13px;background:rgba(7,11,20,.98);box-shadow:0 20px 48px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translate(-50%,-6px);transition:opacity .16s ease,transform .16s ease,visibility .16s ease}
+      .nav-dropdown-menu::before{position:absolute;right:0;bottom:100%;left:0;height:16px;content:''}
+      .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu,.nav-dropdown.is-open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translate(-50%,0)}
+      .nav-dropdown-menu a{display:block;padding:10px 12px;border-radius:8px;white-space:nowrap;color:rgba(255,255,255,.78)}
+      .nav-dropdown-menu a:hover,.nav-dropdown-menu a:focus-visible,.nav-dropdown-menu a[aria-current="page"]{color:#111827;background:var(--yellow-light,#ffe36e)}
       .social-twitch:hover{color:#bf94ff}
       .social-tipeee:hover{color:var(--yellow-light,#ffe36e)}
-      @media(max-width:560px){.header-inner{gap:10px;min-height:72px}.language-picker-wrap{margin-left:0}.language-picker{min-height:32px;font-size:.76rem}}
+      @media(max-width:760px){.nav{display:flex;order:3;width:100%;justify-content:flex-start;gap:7px;padding:0 0 10px;font-size:.76rem}.nav>a,.nav-dropdown>button{padding:7px 8px;border-radius:8px;background:rgba(255,255,255,.055)}.nav-dropdown-menu{left:0;transform:translate(0,-6px)}.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu,.nav-dropdown.is-open .nav-dropdown-menu{transform:translate(0,0)}}
+      @media(max-width:560px){.header-inner{gap:10px;min-height:72px}.language-picker-wrap{margin-left:0}.language-picker{min-height:32px;font-size:.76rem}.nav{gap:4px}.nav>a,.nav-dropdown>button{padding:6px;font-size:.7rem}}
     `;
     document.head.append(style);
   }
@@ -416,6 +494,7 @@
     makePicker(lang, textValue(t.languageLabel, 'Language'));
 
     const page = document.body.dataset.page;
+    buildPrimaryNav(lang, page);
     if (page === 'privacy' || page === 'terms') {
       localizeLegal(lang, t);
     } else if (page === 'next-project') {
