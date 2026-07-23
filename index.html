@@ -1,328 +1,137 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#070b14" name="theme-color"/>
-<meta content="La feuille de route de Feather Labs Interactive : projets publiés, travaux en cours et prochaines étapes." name="description"/>
-<title>Feuille de route — Feather Labs Interactive</title>
-<link href="studio-pages.css" rel="stylesheet"/>
+<meta content="Feather Labs Interactive est un studio indépendant dédié avant tout aux jeux vidéo, avec un pôle secondaire de produits numériques." name="description"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Feather Labs Interactive"/>
+<meta property="og:title" content="Feather Labs Interactive — Jeux indépendants et produits numériques"/>
+<meta property="og:description" content="Nous créons avant tout des jeux vidéo indépendants. En parallèle, nous développons une sélection de produits numériques utiles."/>
+<meta property="og:url" content="https://featherlabs2026.github.io/"/>
+<meta property="og:image" content="https://featherlabs2026.github.io/assets/feather-labs/social-share.png"/>
+<meta property="og:image:width" content="1536"/>
+<meta property="og:image:height" content="864"/>
+<meta property="og:image:alt" content="Logo Feather Labs Interactive sur un fond bleu nuit, cyan et or"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Feather Labs Interactive — Studio indépendant"/>
+<meta name="twitter:description" content="Jeux vidéo indépendants en activité principale, produits numériques en activité secondaire."/>
+<meta name="twitter:image" content="https://featherlabs2026.github.io/assets/feather-labs/social-share.png"/>
+<link rel="canonical" href="https://featherlabs2026.github.io/"/>
+<link rel="icon" type="image/webp" href="assets/feather-labs/brand-mark.webp"/>
+<link rel="apple-touch-icon" href="assets/feather-labs/brand-mark.webp"/>
+<title>Feather Labs Interactive — Studio de jeux indépendant</title>
+<link href="studio-pages.css?v=20260723-home" rel="stylesheet"/>
 </head>
-<body data-page="roadmap">
+<body data-page="home">
 <header class="site-header">
 <div class="container header-inner">
-<a aria-label="Feather Labs Interactive — accueil" class="brand" href="index.html">
+<a aria-label="Feather Labs Interactive — accueil" class="brand" href="index.html" aria-current="page">
 <img alt="" class="brand-mark" src="assets/feather-labs/brand-mark.webp"/>
 <span>Feather Labs Interactive</span>
 </a>
 <nav aria-label="Navigation principale" class="nav">
-<a aria-current="page" data-nav-roadmap="" href="index.html">Feuille de route</a>
-<a href="pipi-panic.html#pipi-panic">Pipi Panic</a>
-<a data-nav-project="" href="next-project.html">Next Project</a>
-<a data-nav-genable="" href="genable-ai.html">Genable AI (WIP)</a>
-<a data-nav-team="" href="about.html">Qui sommes-nous ?</a>
+<a aria-current="page" data-i18n="navHome" href="index.html">Accueil</a>
+<a data-i18n="navGames" href="#jeux">Jeux</a>
+<a data-i18n="navProducts" href="#produits">Produits</a>
+<a data-i18n="navRoadmap" href="#feuille-de-route">Roadmap</a>
+<a data-nav-team="" href="about.html">Le studio</a>
 </nav>
 </div>
 </header>
 <main>
-<section class="page-hero roadmap-hero">
-<div class="container hero-layout">
-<div>
-<p class="eyebrow" data-i18n="kicker">Feather Labs Interactive</p>
-<h1 data-i18n="heroTitle">Notre feuille de route.</h1>
-<p class="hero-copy" data-i18n="heroCopy">Une chronologie claire de ce que nous avons construit, de ce qui
-            avance aujourd’hui et de ce qui viendra ensuite — sans révéler les projets encore confidentiels.</p>
+<section class="page-hero studio-home-hero">
+<div class="container home-hero-layout">
+<div class="home-hero-copy">
+<p class="eyebrow" data-i18n="kicker">Studio indépendant · Jeux vidéo avant tout</p>
+<h1 data-i18n="heroTitle">Nous créons des jeux qui ont leur propre voix.</h1>
+<p class="hero-copy" data-i18n="heroCopy">Feather Labs Interactive imagine et développe principalement des jeux vidéo indépendants. En parallèle, notre savoir-faire technique donne naissance à une sélection de produits numériques utiles.</p>
 <div class="hero-actions">
-<a class="button button-primary" data-i18n="viewTimeline" href="#chronologie">Voir la chronologie</a>
-<a class="button button-secondary" data-i18n="meetTeam" href="about.html">Découvrir l’équipe</a>
+<a class="button button-primary" data-i18n="discoverGame" href="pipi-panic.html">Découvrir Pipi Panic</a>
+<a class="button button-secondary" data-i18n="followStudio" href="about.html#equipe">Suivre le studio</a>
 </div>
+<p class="store-note" data-i18n="storeNote">La page Google Play sera ajoutée dès la validation de la version de production.</p>
 </div>
-<aside class="hero-panel roadmap-summary">
-<p class="hero-panel-label" data-i18n="statusLabel">État du studio</p>
-<strong data-i18n="statusTitle">Production active</strong>
-<p data-i18n="statusCopy">Le studio avance en parallèle sur la publication de ses jeux, ses outils techniques
-            et Genable AI (WIP).</p>
-<span class="hero-badge" data-i18n="updated">Mise à jour · juillet 2026</span>
-</aside>
+<div class="home-brand-showcase" aria-label="Identité visuelle Feather Labs Interactive">
+<img src="assets/feather-labs/brand-mark.webp" alt="Logo Feather Labs Interactive"/>
+<span data-i18n="primaryActivity">Activité principale · Jeux vidéo</span>
+</div>
 </div>
 </section>
-<section class="section" id="chronologie">
-<div class="container"><div class="section-heading roadmap-main-heading"><p class="section-kicker" data-i18n="timelineKicker">Sorties prévues</p><h2 class="section-title" data-i18n="timelineTitle">Nos prochaines sorties.</h2><p class="section-text" data-i18n="timelineIntro">La feuille de route présente uniquement les jeux et produits destinés au public.</p></div><div class="roadmap-category" data-roadmap-category="games"><div class="roadmap-category-heading"><span aria-hidden="true" class="roadmap-category-icon">🎮</span><div><p class="section-kicker" data-i18n="gamesKicker">Jeux</p><h3 data-i18n="gamesTitle">Jeux vidéo</h3></div></div><ol class="roadmap-timeline roadmap-timeline-compact"><li class="roadmap-item is-active" data-roadmap-status="active"><div aria-hidden="true" class="roadmap-marker"><span>01</span></div><article class="roadmap-card"><button aria-controls="roadmap-pipi" aria-expanded="true" class="roadmap-toggle" type="button"><span class="roadmap-toggle-content"><span class="roadmap-status" data-i18n="pipiStatus">Finalisation</span><h3>Pipi Panic</h3></span><span aria-hidden="true" class="roadmap-chevron">⌄</span></button><div class="roadmap-details" id="roadmap-pipi"><p data-i18n="pipiRoadmapCopy">Polissage final, publication sur les boutiques mobiles et préparation de la communication de lancement.</p><a class="roadmap-link" data-i18n="discoverPipi" href="pipi-panic.html">Découvrir Pipi Panic</a></div></article></li><li class="roadmap-item is-planned" data-roadmap-status="planned"><div aria-hidden="true" class="roadmap-marker"><span>02</span></div><article class="roadmap-card"><button aria-controls="roadmap-next" aria-expanded="false" class="roadmap-toggle" type="button"><span class="roadmap-toggle-content"><span class="roadmap-status" data-i18n="nextStatus">Préproduction</span><h3 data-nav-project="">Projet à venir</h3></span><span aria-hidden="true" class="roadmap-chevron">⌄</span></button><div class="roadmap-details" hidden="" id="roadmap-next"><p data-i18n="nextRoadmapCopy">Un nouveau jeu est en préparation. Son identité restera confidentielle jusqu’à l’ouverture officielle de sa communication.</p><a class="roadmap-link" data-i18n="seeTeaser" href="next-project.html">Voir le teaser</a></div></article></li></ol></div><div class="roadmap-category" data-roadmap-category="products"><div class="roadmap-category-heading"><span aria-hidden="true" class="roadmap-category-icon">◈</span><div><p class="section-kicker" data-i18n="productsKicker">Produits</p><h3 data-i18n="productsTitle">Produits numériques</h3></div></div><ol class="roadmap-timeline roadmap-timeline-compact"><li class="roadmap-item is-active" data-roadmap-status="active"><div aria-hidden="true" class="roadmap-marker"><span>01</span></div><article class="roadmap-card"><button aria-controls="roadmap-genable" aria-expanded="true" class="roadmap-toggle" type="button"><span class="roadmap-toggle-content"><span class="roadmap-status" data-i18n="genableStatus">En développement</span><h3>Genable AI (WIP)</h3></span><span aria-hidden="true" class="roadmap-chevron">⌄</span></button><div class="roadmap-details" id="roadmap-genable"><p data-i18n="genableRoadmapCopy">Consolidation du CRM, scénarios de démonstration par métier et configurations personnalisées pour les premiers clients.</p><a class="roadmap-link" data-i18n="discoverGenable" href="genable-ai.html">Découvrir Genable AI</a></div></article></li></ol></div></div>
+
+<section class="section home-focus" id="jeux">
+<div class="container">
+<div class="section-heading">
+<p class="section-kicker" data-i18n="gamesKicker">Notre cœur de métier</p>
+<h2 class="section-title" data-i18n="gamesTitle">Des jeux indépendants, conçus avec caractère.</h2>
+<p class="section-text" data-i18n="gamesIntro">De l’idée au lancement, nous construisons nos univers, leur gameplay et leur identité avec une production volontairement agile.</p>
+</div>
+<article class="featured-game">
+<div class="featured-game-visual">
+<img src="assets/pipi-panic/title-screen.jpeg" alt="Écran titre de Pipi Panic"/>
+</div>
+<div class="featured-game-copy">
+<span class="project-label" data-i18n="currentGame">Jeu en finalisation</span>
+<h3>Pipi Panic</h3>
+<p data-i18n="pipiIntro">Un jeu mobile cartoon, direct et volontairement absurde, où chaque urgence devient une situation de chaos.</p>
+<div class="project-facts">
+<span>Mobile</span><span>Flutter + Flame</span><span data-i18n="independentProduction">Production indépendante</span>
+</div>
+<a class="button button-primary" data-i18n="explorePipi" href="pipi-panic.html">Explorer le jeu</a>
+</div>
+</article>
+<a class="next-game-teaser" href="next-project.html">
+<span><small data-i18n="nextGameLabel">Après Pipi Panic</small><strong data-i18n="nextGameTitle">Une nouvelle création est déjà en préparation.</strong></span>
+<span aria-hidden="true">→</span>
+</a>
+</div>
+</section>
+
+<section class="section products-section" id="produits">
+<div class="container product-positioning">
+<div>
+<p class="section-kicker" data-i18n="productsKicker">Activité secondaire</p>
+<h2 class="section-title" data-i18n="productsTitle">Notre expertise sert aussi des produits numériques.</h2>
+<p class="section-text" data-i18n="productsIntro">Cette activité annexe transforme nos compétences en développement, automatisation et interface en outils destinés aux professionnels — sans détourner le studio de sa vocation première : créer des jeux.</p>
+</div>
+<article class="product-card-home">
+<span class="project-label product-label" data-i18n="productDevelopment">Produit en développement</span>
+<h3>Genable AI</h3>
+<p data-i18n="genableIntro">Un CRM intelligent et configurable pour centraliser contacts, devis, factures, projets et automatisations.</p>
+<div class="card-actions">
+<a class="button button-primary" data-i18n="tryDemo" href="genable-demo/demo-select/">Tester la démo</a>
+<a class="text-link" data-i18n="learnMore" href="genable-ai.html">En savoir plus →</a>
+</div>
+</article>
+</div>
+</section>
+
+<section class="section roadmap-preview" id="feuille-de-route">
+<div class="container">
+<div class="section-heading roadmap-preview-heading">
+<div><p class="section-kicker" data-i18n="roadmapKicker">Feuille de route publique</p><h2 class="section-title" data-i18n="roadmapTitle">Ce qui avance actuellement.</h2></div>
+<p class="section-text" data-i18n="roadmapIntro">Une vue volontairement concise des productions annoncées. Les projets confidentiels restent confidentiels jusqu’au bon moment.</p>
+</div>
+<div class="progress-cards">
+<article><span>01</span><small data-i18n="finalization">Finalisation</small><h3>Pipi Panic</h3><p data-i18n="pipiRoadmap">Polissage, publication mobile et préparation du lancement.</p></article>
+<article><span>02</span><small data-i18n="preproduction">Préproduction</small><h3 data-i18n="nextCreation">Nouvelle création</h3><p data-i18n="nextRoadmap">Un prochain jeu prend forme avant sa révélation officielle.</p></article>
+<article class="secondary-track"><span>03</span><small data-i18n="secondaryProduct">Pôle produits</small><h3>Genable AI</h3><p data-i18n="genableRoadmap">Consolidation du CRM et préparation des premiers cas clients.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section studio-cta">
+<div class="container cta-panel">
+<div><p class="section-kicker" data-i18n="ctaKicker">Suivre l’aventure</p><h2 data-i18n="ctaTitle">Découvrez les créateurs derrière le studio.</h2><p data-i18n="ctaCopy">Retrouvez nos chaînes, nos coulisses et les moyens de nous contacter. Le Discord officiel du studio arrivera plus tard.</p></div>
+<div class="hero-actions"><a class="button button-primary" data-i18n="meetTeam" href="about.html">Découvrir l’équipe</a><a class="button button-secondary" data-i18n="contact" href="mailto:featherlabs2026@gmail.com?subject=Contact%20Feather%20Labs%20Interactive">Nous contacter</a></div>
+</div>
 </section>
 </main>
-<footer class="site-footer">
-<div class="container footer-inner">
-<p>© 2026 Feather Labs Interactive.</p>
-<nav aria-label="Navigation de pied de page" class="footer-links">
-<a href="pipi-panic.html">Pipi Panic</a>
-<a href="genable-ai.html">Genable AI (WIP)</a>
-<a data-i18n="team" href="about.html">L’équipe</a>
-<a data-i18n="privacy" href="privacy.html">Confidentialité</a>
-<a data-i18n="terms" href="terms.html">Conditions</a>
-</nav>
-</div>
-</footer>
-<script defer="" src="translations-base.js?v=20260720-roadmap-v1"></script>
-<script defer="" src="translations-pages.js?v=20260720-roadmap-v1"></script>
-<script defer="" src="i18n.js?v=20260720-roadmap-v1"></script>
-<script>
-    (() => {
-      "use strict";
-
-      const translations = {
-        fr: {
-          all: "Tous",
-          complete: "Terminés",
-          active: "En cours",
-          planned: "À venir",
-          expand: "Tout développer",
-          collapse: "Tout réduire",
-          filterLabel: "Filtrer la feuille de route",
-          progress: "Progression globale"
-        },
-        en: {
-          all: "All",
-          complete: "Completed",
-          active: "In progress",
-          planned: "Upcoming",
-          expand: "Expand all",
-          collapse: "Collapse all",
-          filterLabel: "Filter the roadmap",
-          progress: "Overall progress"
-        },
-        es: {
-          all: "Todos",
-          complete: "Terminados",
-          active: "En curso",
-          planned: "Próximamente",
-          expand: "Desplegar todo",
-          collapse: "Reducir todo",
-          filterLabel: "Filtrar la hoja de ruta",
-          progress: "Progreso general"
-        },
-        it: {
-          all: "Tutti",
-          complete: "Completati",
-          active: "In corso",
-          planned: "In arrivo",
-          expand: "Espandi tutto",
-          collapse: "Riduci tutto",
-          filterLabel: "Filtra la roadmap",
-          progress: "Avanzamento generale"
-        },
-        de: {
-          all: "Alle",
-          complete: "Abgeschlossen",
-          active: "In Arbeit",
-          planned: "Geplant",
-          expand: "Alle öffnen",
-          collapse: "Alle schließen",
-          filterLabel: "Roadmap filtern",
-          progress: "Gesamtfortschritt"
-        },
-        zh: {
-          all: "全部",
-          complete: "已完成",
-          active: "进行中",
-          planned: "即将推出",
-          expand: "全部展开",
-          collapse: "全部收起",
-          filterLabel: "筛选路线图",
-          progress: "总体进度"
-        },
-        ja: {
-          all: "すべて",
-          complete: "完了",
-          active: "進行中",
-          planned: "予定",
-          expand: "すべて展開",
-          collapse: "すべて閉じる",
-          filterLabel: "ロードマップを絞り込む",
-          progress: "全体の進捗"
-        },
-        ko: {
-          all: "전체",
-          complete: "완료",
-          active: "진행 중",
-          planned: "예정",
-          expand: "모두 펼치기",
-          collapse: "모두 접기",
-          filterLabel: "로드맵 필터",
-          progress: "전체 진행률"
-        }
-      };
-
-      function initializeRoadmap() {
-        const timeline = document.getElementById("roadmap-timeline");
-        const filterGroup = document.getElementById("roadmap-filter-group");
-        const filterButtons = [
-          ...document.querySelectorAll("[data-roadmap-filter]")
-        ];
-        const items = [
-          ...document.querySelectorAll("[data-roadmap-status]")
-        ];
-        const expandButton = document.getElementById("roadmap-expand-all");
-        const progressBar = document.getElementById("roadmap-progress-bar");
-        const progressValue = document.getElementById("roadmap-progress-value");
-        const progressLabel = document.getElementById("roadmap-progress-label");
-
-        if (!timeline || !expandButton || items.length === 0) {
-          return;
-        }
-
-        const language = document.documentElement.lang || "fr";
-        const labels = translations[language] || translations.fr;
-
-        const labelByFilter = {
-          all: labels.all,
-          complete: labels.complete,
-          active: labels.active,
-          planned: labels.planned
-        };
-
-        filterButtons.forEach((button) => {
-          const filter = button.dataset.roadmapFilter;
-          button.textContent = labelByFilter[filter] || filter;
-        });
-
-        filterGroup?.setAttribute("aria-label", labels.filterLabel);
-
-        if (progressLabel) {
-          progressLabel.textContent = labels.progress;
-        }
-
-        const completedCount = items.filter(
-          (item) => item.dataset.roadmapStatus === "complete"
-        ).length;
-
-        const progress = Math.round(
-          (completedCount / items.length) * 100
-        );
-
-        if (progressBar) {
-          progressBar.style.width = `${progress}%`;
-        }
-
-        if (progressValue) {
-          progressValue.textContent =
-            `${completedCount} / ${items.length}`;
-        }
-
-        progressBar?.parentElement?.setAttribute(
-          "aria-valuenow",
-          String(progress)
-        );
-
-        function setOpen(item, open) {
-          const button = item.querySelector(".roadmap-toggle");
-          const details = item.querySelector(".roadmap-details");
-
-          item.classList.toggle("is-open", open);
-          button?.setAttribute("aria-expanded", String(open));
-
-          if (details) {
-            details.hidden = !open;
-          }
-        }
-
-        function getVisibleItems() {
-          return items.filter((item) => !item.hidden);
-        }
-
-        function updateExpandButton() {
-          const visibleItems = getVisibleItems();
-          const allOpen =
-            visibleItems.length > 0 &&
-            visibleItems.every((item) =>
-              item.classList.contains("is-open")
-            );
-
-          expandButton.textContent =
-            allOpen ? labels.collapse : labels.expand;
-
-          expandButton.dataset.mode =
-            allOpen ? "collapse" : "expand";
-        }
-
-        items.forEach((item) => {
-          const button = item.querySelector(".roadmap-toggle");
-
-          button?.addEventListener("click", () => {
-            setOpen(
-              item,
-              !item.classList.contains("is-open")
-            );
-
-            updateExpandButton();
-          });
-        });
-
-        filterButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            const selectedFilter =
-              button.dataset.roadmapFilter || "all";
-
-            filterButtons.forEach((otherButton) => {
-              const selected = otherButton === button;
-
-              otherButton.classList.toggle(
-                "is-selected",
-                selected
-              );
-
-              otherButton.setAttribute(
-                "aria-pressed",
-                String(selected)
-              );
-            });
-
-            items.forEach((item) => {
-              const visible =
-                selectedFilter === "all" ||
-                item.dataset.roadmapStatus === selectedFilter;
-
-              item.hidden = !visible;
-            });
-
-            updateExpandButton();
-          });
-        });
-
-        expandButton.addEventListener("click", () => {
-          const shouldOpen =
-            expandButton.dataset.mode !== "collapse";
-
-          getVisibleItems().forEach((item) => {
-            setOpen(item, shouldOpen);
-          });
-
-          updateExpandButton();
-        });
-
-        updateExpandButton();
-      }
-
-      document.addEventListener(
-        "DOMContentLoaded",
-        () => window.setTimeout(initializeRoadmap, 0),
-        { once: true }
-      );
-    })();
-  </script>
-<script>(() => {
-  const items = [...document.querySelectorAll('.roadmap-item')];
-  const setOpen = (item, open) => {
-    const button = item.querySelector('.roadmap-toggle');
-    const details = item.querySelector('.roadmap-details');
-    item.classList.toggle('is-open', open);
-    button?.setAttribute('aria-expanded', String(open));
-    if (details) details.hidden = !open;
-  };
-  items.forEach((item) => {
-    const open = item.querySelector('.roadmap-toggle')?.getAttribute('aria-expanded') === 'true';
-    setOpen(item, open);
-    item.querySelector('.roadmap-toggle')?.addEventListener('click', () => setOpen(item, !item.classList.contains('is-open')));
-  });
-})();</script></body>
+<footer class="site-footer"><div class="container footer-inner"><p>© 2026 Feather Labs Interactive.</p><nav aria-label="Navigation de pied de page" class="footer-links"><a href="pipi-panic.html">Pipi Panic</a><a href="genable-ai.html">Genable AI</a><a data-i18n="team" href="about.html">L’équipe</a><a data-i18n="privacy" href="privacy.html">Confidentialité</a><a data-i18n="terms" href="terms.html">Conditions</a></nav></div></footer>
+<script defer src="translations-base.js?v=20260723"></script>
+<script defer src="translations-pages.js?v=20260723"></script>
+<script defer src="brand-copy.js?v=20260723"></script>
+<script defer src="i18n.js?v=20260723"></script>
+</body>
 </html>

@@ -426,6 +426,8 @@
       localizeAbout(lang, t);
     } else if (page === 'genable') {
       localizeGenable(lang, t);
+    } else if (page === 'home') {
+      localizeDataPage('home', t);
     } else {
       localizeIndex(lang, t);
     }
