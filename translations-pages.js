@@ -21,3 +21,13 @@ Object.assign(window.FEATHER_TRANSLATIONS["de"] ||= {}, {"navRoadmap":"Roadmap",
 Object.assign(window.FEATHER_TRANSLATIONS["zh"] ||= {}, {"navRoadmap":"路线图","roadmap":{"timelineKicker":"计划发布","timelineTitle":"即将推出的内容。","timelineIntro":"路线图仅展示面向公众发布的游戏和产品。","gamesKicker":"游戏","gamesTitle":"电子游戏","productsKicker":"产品","productsTitle":"数字产品","pipiStatus":"收尾阶段","pipiRoadmapCopy":"最终打磨、移动商店发布以及上线宣传准备。","nextStatus":"前期制作","nextRoadmapCopy":"一款新游戏正在筹备中，其身份将在正式公开前保持保密。","genableStatus":"开发中","genableRoadmapCopy":"完善 CRM、按行业制作演示场景，并为首批客户准备定制配置。","discoverPipi":"了解 Pipi Panic","discoverGenable":"了解 Genable AI","seeTeaser":"查看预告"},"navProject":"下一个项目"});
 Object.assign(window.FEATHER_TRANSLATIONS["ja"] ||= {}, {"navRoadmap":"ロードマップ","roadmap":{"timelineKicker":"今後のリリース","timelineTitle":"次に公開する作品と製品。","timelineIntro":"ロードマップでは一般公開予定のゲームと製品のみを紹介します。","gamesKicker":"ゲーム","gamesTitle":"ビデオゲーム","productsKicker":"製品","productsTitle":"デジタル製品","pipiStatus":"最終調整","pipiRoadmapCopy":"最終調整、モバイルストアでの公開、ローンチ告知の準備。","nextStatus":"プリプロダクション","nextRoadmapCopy":"新作ゲームを準備中です。正式発表までは内容を非公開とします。","genableStatus":"開発中","genableRoadmapCopy":"CRMの統合、業種別デモ、初期顧客向けカスタム設定を進めています。","discoverPipi":"Pipi Panicを見る","discoverGenable":"Genable AIを見る","seeTeaser":"ティザーを見る"},"navProject":"次回作"});
 Object.assign(window.FEATHER_TRANSLATIONS["ko"] ||= {}, {"navRoadmap":"로드맵","roadmap":{"timelineKicker":"출시 예정","timelineTitle":"다음 출시 항목.","timelineIntro":"로드맵에는 공개 예정인 게임과 제품만 표시됩니다.","gamesKicker":"게임","gamesTitle":"비디오 게임","productsKicker":"제품","productsTitle":"디지털 제품","pipiStatus":"마무리 단계","pipiRoadmapCopy":"최종 다듬기, 모바일 스토어 출시 및 출시 홍보 준비.","nextStatus":"프리프로덕션","nextRoadmapCopy":"새 게임을 준비 중이며 공식 공개 전까지 정체를 비공개로 유지합니다.","genableStatus":"개발 중","genableRoadmapCopy":"CRM 통합, 업종별 데모 시나리오 및 초기 고객용 맞춤 구성을 준비합니다.","discoverPipi":"Pipi Panic 보기","discoverGenable":"Genable AI 보기","seeTeaser":"티저 보기"},"navProject":"다음 프로젝트"});
+
+/* Roadmap — titre du jeu confidentiel (ajout non destructif). */
+Object.assign(window.FEATHER_TRANSLATIONS["fr"].roadmap ||= {}, {"nextTitle":"Nouveau jeu"});
+Object.assign(window.FEATHER_TRANSLATIONS["en"].roadmap ||= {}, {"nextTitle":"New game"});
+Object.assign(window.FEATHER_TRANSLATIONS["es"].roadmap ||= {}, {"nextTitle":"Nuevo juego"});
+Object.assign(window.FEATHER_TRANSLATIONS["it"].roadmap ||= {}, {"nextTitle":"Nuovo gioco"});
+Object.assign(window.FEATHER_TRANSLATIONS["de"].roadmap ||= {}, {"nextTitle":"Neues Spiel"});
+Object.assign(window.FEATHER_TRANSLATIONS["zh"].roadmap ||= {}, {"nextTitle":"新游戏"});
+Object.assign(window.FEATHER_TRANSLATIONS["ja"].roadmap ||= {}, {"nextTitle":"新作ゲーム"});
+Object.assign(window.FEATHER_TRANSLATIONS["ko"].roadmap ||= {}, {"nextTitle":"새 게임"});

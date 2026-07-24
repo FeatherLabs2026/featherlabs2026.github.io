@@ -1,0 +1,340 @@
+/* =========================================================
+   KageCrest Studio — Couche d'effets futuristes (studio-fx)
+   Additive et namespacée (.fx-*) : ne modifie aucun style
+   existant. Pilotée par body[data-page] pour l'intensité.
+   Juillet 2026
+   ========================================================= */
+
+:root {
+  --fx-cyan: #3fbfe7;
+  --fx-magenta: #ff4d8d;
+  --fx-reveal-shift: 26px;
+  --fx-ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+/* ---------------------------------------------------------
+   1. Fond « aurora » animé (toutes les pages vitrine)
+   --------------------------------------------------------- */
+
+body::before {
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(38rem 38rem at 12% -6%, rgba(77, 141, 255, .22), transparent 60%),
+    radial-gradient(34rem 34rem at 92% 12%, rgba(63, 191, 231, .18), transparent 60%),
+    radial-gradient(30rem 30rem at 78% 96%, rgba(244, 201, 29, .14), transparent 62%);
+  background-repeat: no-repeat;
+  animation: fx-aurora 22s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes fx-aurora {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1.02);
+    opacity: .85;
+  }
+
+  50% {
+    transform: translate3d(2%, 1.5%, 0) scale(1.08);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(-1%, 2%, 0) scale(1.04);
+    opacity: .9;
+  }
+}
+
+/* Sur fonds sombres (hero, sections dark), l'aurora respire un peu plus. */
+.page-hero {
+  isolation: isolate;
+}
+
+/* ---------------------------------------------------------
+   2. Barre de progression de scroll (injectée par le JS)
+   --------------------------------------------------------- */
+
+.fx-scroll-progress {
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--yellow, #f4c91d), var(--fx-cyan), var(--blue, #4d8dff));
+  box-shadow: 0 0 12px rgba(63, 191, 231, .55);
+  transition: width .1s linear;
+}
+
+/* ---------------------------------------------------------
+   3. Reveal au scroll (état posé par le JS)
+   --------------------------------------------------------- */
+
+[data-fx-reveal] {
+  opacity: 0;
+  transform: translateY(var(--fx-reveal-shift));
+  transition:
+    opacity .7s var(--fx-ease),
+    transform .7s var(--fx-ease);
+  transition-delay: calc(var(--fx-i, 0) * 70ms);
+  will-change: opacity, transform;
+}
+
+[data-fx-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------
+   4. Néon / glow premium (survol) — toutes pages vitrine
+   --------------------------------------------------------- */
+
+.button-primary {
+  position: relative;
+  box-shadow:
+    0 14px 34px rgba(244, 201, 29, .22),
+    0 0 0 0 rgba(255, 227, 110, .0);
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    background .18s ease,
+    box-shadow .3s ease;
+}
+
+.button-primary:hover {
+  box-shadow:
+    0 16px 40px rgba(244, 201, 29, .32),
+    0 0 26px rgba(255, 227, 110, .35);
+}
+
+.button-secondary {
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    background .18s ease,
+    box-shadow .3s ease;
+}
+
+.button-secondary:hover {
+  border-color: rgba(63, 191, 231, .55);
+  box-shadow: 0 0 22px rgba(63, 191, 231, .25);
+}
+
+/* Cartes : élévation + liseré lumineux au survol. */
+.value-card,
+.feature-card,
+.product-card-home,
+.progress-cards article,
+.preset-card,
+.roadmap-category,
+.person-card,
+.hero-panel {
+  transition:
+    transform .28s var(--fx-ease),
+    box-shadow .28s var(--fx-ease),
+    border-color .28s var(--fx-ease);
+}
+
+.value-card:hover,
+.feature-card:hover,
+.product-card-home:hover,
+.progress-cards article:hover,
+.preset-card:hover,
+.roadmap-category:hover {
+  transform: translateY(-4px);
+  border-color: rgba(63, 191, 231, .4);
+  box-shadow:
+    0 22px 55px rgba(7, 13, 28, .18),
+    0 0 30px rgba(63, 191, 231, .14);
+}
+
+/* Le hero-panel / brand showcase gagne un halo cyan/jaune permanent doux. */
+.home-brand-showcase,
+.hero-panel {
+  position: relative;
+}
+
+.home-brand-showcase::after {
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  content: "";
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(63, 191, 231, .5), rgba(244, 201, 29, .35));
+  opacity: .35;
+  filter: blur(18px);
+  animation: fx-halo 6s ease-in-out infinite alternate;
+}
+
+@keyframes fx-halo {
+  from { opacity: .22; }
+  to { opacity: .5; }
+}
+
+/* ---------------------------------------------------------
+   5. Couche CYBER — accueil + pages jeux uniquement
+      body[data-page="home" | "pipi-panic" | "next-project"]
+   --------------------------------------------------------- */
+
+/* Grille en perspective + scanlines sur le hero. */
+body[data-page="home"] .page-hero::before,
+body[data-page="pipi-panic"] .page-hero::before,
+body[data-page="next-project"] .page-hero::before,
+body[data-page="roadmap"] .page-hero::before {
+  /* On conserve le décor rond existant ET on ajoute la grille via background. */
+  background-image:
+    linear-gradient(rgba(63, 191, 231, .12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63, 191, 231, .12) 1px, transparent 1px);
+  background-size: 46px 46px, 46px 46px;
+  background-position: center top;
+  animation: fx-grid 7s linear infinite;
+}
+
+@keyframes fx-grid {
+  from { background-position: center 0, 0 center; }
+  to { background-position: center 46px, 46px center; }
+}
+
+/* Voile de scanlines très discret au-dessus du hero cyber. */
+body[data-page="home"] .page-hero > .container,
+body[data-page="pipi-panic"] .page-hero > .container,
+body[data-page="next-project"] .page-hero > .container,
+body[data-page="roadmap"] .page-hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="home"] .page-hero::after,
+body[data-page="pipi-panic"] .page-hero::after,
+body[data-page="next-project"] .page-hero::after,
+body[data-page="roadmap"] .page-hero::after {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, .035) 0,
+    rgba(255, 255, 255, .035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+  opacity: .5;
+}
+
+/* Puce « signal » cyber ajoutée devant les kickers des pages jeux. */
+body[data-page="home"] .eyebrow::before,
+body[data-page="pipi-panic"] .eyebrow::before,
+body[data-page="next-project"] .eyebrow::before,
+body[data-page="roadmap"] .eyebrow::before {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 9px;
+  content: "";
+  border-radius: 50%;
+  background: var(--fx-cyan);
+  box-shadow: 0 0 10px var(--fx-cyan);
+  animation: fx-pulse 1.6s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes fx-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .35; transform: scale(.7); }
+}
+
+/* ---------------------------------------------------------
+   6. Boutons magnétiques (transform posé inline par le JS,
+      on garantit juste une transition douce au retour).
+   --------------------------------------------------------- */
+
+.fx-magnetic {
+  transition: transform .2s var(--fx-ease);
+}
+
+/* ---------------------------------------------------------
+   7. Anti-débordement mobile
+   Les items de grille ont un min-width:auto par défaut : leur
+   contenu peut forcer une piste plus large que le conteneur et
+   provoquer un débordement horizontal (rogné par overflow:hidden
+   sur les hero). min-width:0 rétablit un dimensionnement correct.
+   --------------------------------------------------------- */
+
+.hero-layout > *,
+.home-hero-layout > *,
+.product-positioning > *,
+.featured-game > *,
+.cta-panel > *,
+.roadmap-lanes > *,
+.demo-preset-layout > *,
+.roadmap-preview-heading > *,
+.access-box > *,
+.rm-card {
+  min-width: 0;
+}
+
+/* Les mots très longs (emails, noms de modules) ne débordent pas. */
+.hero-copy,
+.rm-card p,
+.access-box p,
+.cta-panel p {
+  overflow-wrap: break-word;
+}
+
+/* Titres : les mots français longs (« accompagnement », « indépendant »… )
+   peuvent dépasser la police XXL du hero sur mobile. On autorise la césure
+   et, en dernier recours, la coupure du mot pour éviter tout débordement. */
+.page-hero h1,
+.section-title,
+.rm-lane-head h2,
+.rm-card h3,
+.featured-game-copy h3,
+.product-card-home h3,
+.cta-panel h2,
+.access-box h2 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Sur très petits écrans, on abaisse la police XXL des titres pour que
+   les longs mots français tiennent sans coupure disgracieuse. */
+@media (max-width: 430px) {
+  .page-hero h1 {
+    font-size: clamp(2rem, 10.5vw, 3.4rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.7rem, 8vw, 2.6rem);
+  }
+}
+
+/* ---------------------------------------------------------
+   8. Accessibilité — respect de prefers-reduced-motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .home-brand-showcase::after,
+  body[data-page="home"] .page-hero::before,
+  body[data-page="pipi-panic"] .page-hero::before,
+  body[data-page="next-project"] .page-hero::before,
+  body[data-page="roadmap"] .page-hero::before,
+  body[data-page="home"] .eyebrow::before,
+  body[data-page="pipi-panic"] .eyebrow::before,
+  body[data-page="next-project"] .eyebrow::before,
+  body[data-page="roadmap"] .eyebrow::before {
+    animation: none !important;
+  }
+
+  [data-fx-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .fx-scroll-progress {
+    display: none;
+  }
+}

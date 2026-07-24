@@ -128,7 +128,7 @@
           <a href="genable-ai.html"${page === 'genable' ? ' aria-current="page"' : ''}>Genable AI (WIP)</a>
         </div>
       </div>
-      <a href="index.html#feuille-de-route">${copy.roadmap}</a>
+      <a href="roadmap.html"${page === 'roadmap' ? ' aria-current="page"' : ''}>${copy.roadmap}</a>
       <a href="about.html"${page === 'about' ? ' aria-current="page"' : ''}>${copy.studio}</a>
     `;
     nav.setAttribute('aria-label', nav.getAttribute('aria-label') || 'Navigation');
