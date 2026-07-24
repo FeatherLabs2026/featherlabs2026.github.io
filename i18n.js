@@ -1,8 +1,8 @@
-/* Feather Labs Interactive — static multilingual layer; no external translation service. */
+/* KageCrest Studio — static multilingual layer; no external translation service. */
 (() => {
   'use strict';
 
-  const STORAGE_KEY = 'featherlabs-language';
+  const STORAGE_KEY = 'kagecrest-language';
   const LANGS = {
     fr: 'Français', en: 'English', es: 'Español', it: 'Italiano',
     de: 'Deutsch', zh: '简体中文', ja: '日本語', ko: '한국어'
@@ -84,12 +84,12 @@
     }
     brand.className = 'brand';
     brand.href = 'index.html';
-    brand.setAttribute('aria-label', 'Feather Labs Interactive — accueil');
+    brand.setAttribute('aria-label', 'KageCrest Studio — accueil');
     if (page === 'home') brand.setAttribute('aria-current', 'page');
     else brand.removeAttribute('aria-current');
     brand.innerHTML = `
-      <img alt="" class="brand-mark" src="assets/feather-labs/brand-mark.webp">
-      <span>Feather Labs Interactive</span>
+      <img alt="" class="brand-mark" src="assets/kagecrest/brand-mark.webp">
+      <span>KageCrest Studio</span>
     `;
   }
 
@@ -292,7 +292,7 @@
     });
 
     localizeMainNav(t);
-    $('.brand')?.setAttribute('aria-label', textValue(t.homeAria, 'Feather Labs Interactive — home'));
+    $('.brand')?.setAttribute('aria-label', textValue(t.homeAria, 'KageCrest Studio — home'));
   }
 
   function localizeRoadmap(lang, t) {
@@ -404,7 +404,7 @@
       legal.termsFooter
     );
 
-    $('.brand')?.setAttribute('aria-label', textValue(t.homeAria, 'Feather Labs Interactive — home'));
+    $('.brand')?.setAttribute('aria-label', textValue(t.homeAria, 'KageCrest Studio — home'));
     $('.site-legal-links')?.setAttribute(
       'aria-label', textValue(t.legalAria, legal.object.footerAria, 'Legal information')
     );
@@ -415,7 +415,7 @@
 
     document.title = textValue(
       project.title,
-      'Next Project — Coming soon | Feather Labs Interactive'
+      'Next Project — Coming soon | KageCrest Studio'
     );
 
     const description = $('meta[name="description"]');
@@ -432,7 +432,7 @@
 
     $('.brand')?.setAttribute(
       'aria-label',
-      textValue(t.homeAria, 'Feather Labs Interactive — home')
+      textValue(t.homeAria, 'KageCrest Studio — home')
     );
   }
 
@@ -443,8 +443,8 @@
     const termsTitle = textValue(legal.termsTitle, 'Terms of Use');
 
     document.title = page === 'privacy'
-      ? `${privacyTitle} — Pipi Panic | Feather Labs Interactive`
-      : `${termsTitle} — Pipi Panic | Feather Labs Interactive`;
+      ? `${privacyTitle} — Pipi Panic | KageCrest Studio`
+      : `${termsTitle} — Pipi Panic | KageCrest Studio`;
 
     const description = $('meta[name="description"]');
     if (description) {
@@ -496,7 +496,7 @@
       const href = link.getAttribute('href');
       if (!href || !/^(?:index|pipi-panic|privacy|terms|next-project|about|genable-ai)\.html(?:[?#]|$)/.test(href)) return;
 
-      const base = location.href.startsWith('about:') ? 'https://featherlabs.local/' : location.href;
+      const base = location.href.startsWith('about:') ? 'https://kagecrest.local/' : location.href;
       const url = new URL(href, base);
       url.searchParams.set('lang', lang);
       const file = url.pathname.split('/').pop();

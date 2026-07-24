@@ -1,4 +1,4 @@
-FEATHER LABS INTERACTIVE — MULTILINGUAL LEGAL PAGES
+KAGECREST STUDIO INTERACTIVE — MULTILINGUAL LEGAL PAGES
 
 FILES :
 - index.html
@@ -15,14 +15,14 @@ FILES :
 WHAT CHANGED
 - A language selector is present on every page.
 - Supported languages: Français, English, Español, Italiano, Deutsch, 简体中文, 日本語, 한국어.
-- The selection is saved only in the visitor's browser localStorage. It does not create a cookie and is not sent to Feather Labs.
+- The selection is saved only in the visitor's browser localStorage. It does not create a cookie and is not sent to KageCrest Studio.
 - Internal links keep the chosen language through the ?lang= parameter.
 - Legal page translations are bundled locally: no external translation service is contacted.
 
 PUBLIC URLS
-- https://featherlabs2026.github.io/
-- https://featherlabs2026.github.io/privacy.html
-- https://featherlabs2026.github.io/terms.html
+- https://kagecrest.github.io/
+- https://kagecrest.github.io/privacy.html
+- https://kagecrest.github.io/terms.html
 
 GOOGLE PLAY
 Use the privacy page URL above in the Google Play privacy-policy field.
